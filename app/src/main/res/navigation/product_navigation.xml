@@ -1,6 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/product_navigation">
+    android:id="@+id/product_navigation"
+    app:startDestination="@id/brandFragment">
 
+    <fragment
+        android:id="@+id/brandFragment"
+        android:name="com.makeupapp.makeup.product.presentation.screens.BrandFragment"
+        android:label="BrandFragment" >
+        <action
+            android:id="@+id/action_brandFragment_to_productTypeFragment"
+            app:destination="@id/productTypeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/productTypeFragment"
+        android:name="com.makeupapp.makeup.product.presentation.screens.ProductTypeFragment"
+        android:label="ProductTypeFragment" >
+        <action
+            android:id="@+id/action_productTypeFragment_to_productDetailsFragment"
+            app:destination="@id/productDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/productDetailsFragment"
+        android:name="com.makeupapp.makeup.product.presentation.screens.ProductDetailsFragment"
+        android:label="ProductDetailsFragment" />
 </navigation>

@@ -32,7 +32,7 @@ class RetrofitModule {
 
     @Provides
     @Singleton
-    fun provideAuthModuleApi(): NetworkInterface {
+    fun provideNetworkModuleApi(): NetworkInterface {
         return providesRetrofitInstance(BASE_URL).create(NetworkInterface::class.java)
     }
 

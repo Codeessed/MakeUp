@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
 import com.makeupapp.makeup.common.MakeUpEvent
 import com.makeupapp.makeup.common.observer
 import com.makeupapp.makeup.databinding.BrandFragmentBinding
@@ -42,7 +41,6 @@ class BrandFragment: Fragment() {
                 }
                 is MakeUpEvent.Error -> {
                     Log.d("TAG", makeUp.message)
-
                 }
                 is MakeUpEvent.Loading -> {
                     Log.d("TAG", "loading")

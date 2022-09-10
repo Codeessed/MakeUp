@@ -1,5 +1,6 @@
 package com.makeupapp.makeup.product.domain.repository
 
+import android.util.Log
 import com.makeupapp.makeup.common.Resource
 import com.makeupapp.makeup.product.data.model.MakeUpResponseModel
 import com.makeupapp.makeup.product.network.NetworkInterface
@@ -19,6 +20,7 @@ class RepositoryImplementation @Inject constructor(private val networkInterface:
     val result = response.body()
     return try {
         if (response.isSuccessful && result != null) {
+            Log.d("TAG", result.toString())
             Resource.Success(result)
         } else {
             Resource.Error("Error")
