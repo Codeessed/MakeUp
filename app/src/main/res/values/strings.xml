@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">MakeUp</string>
+    <string name="band_name">Band Name</string>
+    <string name="retry">RETRY</string>
 </resources>
