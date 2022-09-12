@@ -100,8 +100,10 @@ class BrandFragment: Fragment(), OnItemClickListener {
         _binding = null
     }
 
-    override fun onClick(id: Int, brand: String) {
-        makeUpViewModel.updateProductTypes(id, brand)
+    override fun onClick(id: Int, brand: String?) {
+        if (brand != null) {
+            makeUpViewModel.updateProductTypes(id, brand)
+        }
         findNavController().navigate(R.id.action_brandFragment_to_productTypeFragment)
     }
 }

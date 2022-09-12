@@ -28,6 +28,10 @@ class ProductTypeAdapter(private val onItemClickListener: OnItemClickListener, p
                 productItem.setOnClickListener {
                     onItemClickListener.onClick(brand.id, brand.brand)
                 }
+                productCurrency.text = brand.currency
+                productPriceSign.text = brand.price_sign
+                productPrice.text = brand.price
+                productDesc.text = brand.description
             }
         }
     }
