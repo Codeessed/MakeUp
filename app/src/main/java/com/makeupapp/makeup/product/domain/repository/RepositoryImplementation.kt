@@ -1,5 +1,6 @@
 package com.makeupapp.makeup.product.domain.repository
 
+import android.util.Log
 import com.makeupapp.makeup.common.Resource
 import com.makeupapp.makeup.product.data.model.MakeUpResponseModel
 import com.makeupapp.makeup.product.network.NetworkInterface

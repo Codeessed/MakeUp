@@ -16,6 +16,7 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 class RetrofitModule {
 
+//    provides retrofit instance
     @Provides
     @Singleton
     fun providesRetrofitInstance(baseUrl: String): Retrofit{
@@ -32,7 +33,7 @@ class RetrofitModule {
 
     @Provides
     @Singleton
-    fun provideAuthModuleApi(): NetworkInterface {
+    fun provideNetworkModuleApi(): NetworkInterface {
         return providesRetrofitInstance(BASE_URL).create(NetworkInterface::class.java)
     }
 

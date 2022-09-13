@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">MakeUp</string>
+    <string name="brand_name">Band Name</string>
+    <string name="band_name">Band Name</string>
+    <string name="retry">RETRY</string>
+    <string name="detail_price">%1s%2s %3s</string>
+    <string name="detail_product">%s</string>
+    <string name="detail_brand">%s</string>
+    <string name="detail_category">%s</string>
+    <string name="detail_desc">%s</string>
 </resources>
