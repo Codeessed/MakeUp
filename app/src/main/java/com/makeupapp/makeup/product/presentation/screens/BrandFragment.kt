@@ -23,6 +23,7 @@ import com.makeupapp.makeup.product.data.model.MakeUpResponseModelItem
 import com.makeupapp.makeup.product.presentation.adapter.BrandAdapter
 import com.makeupapp.makeup.product.presentation.viewmodel.MakeUpViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import timber.log.Timber
 
 @AndroidEntryPoint
 class BrandFragment: Fragment(), OnItemClickListener {
@@ -46,13 +47,17 @@ class BrandFragment: Fragment(), OnItemClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setUpBrandRecyclerView()
+
+//        retry on failure
         binding.brandRetry.setOnClickListener {
             makeUpViewModel.getMakeUp()
         }
 
+//        observes network state
         observer(makeUpViewModel.makeUp){ makeUp ->
             when(makeUp){
                 is MakeUpEvent.MakeUpSuccess -> {
+                    Timber.e(makeUpViewModel.brandList.toString())
                     brandAdapter.differ.submitList(makeUpViewModel.brandList)
                     brandSuccess()
                 }
@@ -99,6 +104,7 @@ class BrandFragment: Fragment(), OnItemClickListener {
         _binding = null
     }
 
+//    updates the product brand id in the viewmodel to track other brand product types
     override fun onClick(id: Int, brand: String?) {
         if (brand != null) {
             makeUpViewModel.updateProductTypes(id, brand)

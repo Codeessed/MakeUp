@@ -47,6 +47,8 @@ class ProductTypeFragment: Fragment(), OnItemClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setUpProductTypeRv()
+
+//        observes all product in a particular brand
         observer(makeUpViewModel.productType){ productType ->
             when(productType){
                 is MakeUpEvent.ProductTypeSuccess ->{
@@ -60,22 +62,6 @@ class ProductTypeFragment: Fragment(), OnItemClickListener {
             }
 
         }
-//        observer(makeUpViewModel.makeUp){ makeUp ->
-//            when(makeUp){
-//                is MakeUpEvent.MakeUpSuccess -> {
-//                    setUpBrandRecyclerView(makeUpViewModel.brandList)
-//                    brandSuccess()
-//                }
-//                is MakeUpEvent.Error -> {
-//                    brandFailed()
-//                    Toast.makeText(requireContext(), makeUp.message, Toast.LENGTH_SHORT).show()
-//                }
-//                is MakeUpEvent.Loading -> {
-//                    productTypeLoading()
-//                }
-//                else -> makeUpViewModel.getMakeUp()
-//            }
-//        }
     }
 
     private fun setUpProductTypeRv(){

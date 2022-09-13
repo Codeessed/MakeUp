@@ -20,7 +20,6 @@ class RepositoryImplementation @Inject constructor(private val networkInterface:
     val result = response.body()
     return try {
         if (response.isSuccessful && result != null) {
-            Log.d("TAG", result.toString())
             Resource.Success(result)
         } else {
             Resource.Error("Error")

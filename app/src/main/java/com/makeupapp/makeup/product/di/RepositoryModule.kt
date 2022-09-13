@@ -13,6 +13,7 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 class RepositoryModule {
 
+//    provides the network interface
     @Provides
     @Singleton
     fun providesRepository(networkInterface: NetworkInterface): RepositoryInterface =

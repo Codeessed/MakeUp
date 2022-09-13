@@ -46,6 +46,7 @@ class ProductDetailsFragment: Fragment() {
             when(makeUp){
                 is MakeUpEvent.MakeUpSuccess ->{
                     val result = makeUp.makeUp
+//                    loop through to get the id of the product type and get the details
                     for (i in 0..result.lastIndex){
                         if (result[i].id == id){
                             attachValues(result[i])
@@ -80,6 +81,7 @@ class ProductDetailsFragment: Fragment() {
         return ColorStateList(states, colors)
     }
 
+//    unclickable chips for available colors
     private fun createChip(color: String) {
         val chip = Chip(requireContext())
         chip.apply {
@@ -98,7 +100,7 @@ class ProductDetailsFragment: Fragment() {
         binding.productDetailProduct.text = getString(R.string.detail_product, item.product_type)
         binding.productDetailCategory.text = getString(R.string.detail_category, item.category?:"")
         binding.productDetailDesc.text = getString(R.string.detail_desc, item.description)
-        Picasso.get().load(item.image_link).placeholder(R.drawable.ic_pic_placeholder).into(binding.productDetailImage)
+        Picasso.get().load("https:${item.api_featured_image}").placeholder(R.drawable.ic_pic_placeholder).into(binding.productDetailImage)
     }
 
     override fun onDestroy() {

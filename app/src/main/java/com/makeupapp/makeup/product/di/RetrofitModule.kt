@@ -16,6 +16,7 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 class RetrofitModule {
 
+//    provides retrofit instance
     @Provides
     @Singleton
     fun providesRetrofitInstance(baseUrl: String): Retrofit{

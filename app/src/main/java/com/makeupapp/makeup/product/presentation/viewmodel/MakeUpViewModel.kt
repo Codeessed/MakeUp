@@ -39,6 +39,7 @@ class MakeUpViewModel @Inject constructor(private val repository: RepositoryInte
                 when(val result = repository.getAllMakeUp()){
                     is Resource.Success ->{
                         val list = result.data!!
+//                        get products and their ids in separate arraylist
                         brandList.clear()
                         brandList.add(list[0])
                         productList.add(list[0])
@@ -50,10 +51,6 @@ class MakeUpViewModel @Inject constructor(private val repository: RepositoryInte
                                 brandList.add(list[i])
                             }
                         }
-//                        brandList.add(list[5] )
-//                        brandList.add(list[6] )
-//                        brandList.add(list[7] )
-                        Log.d("tag", brandList.toString())
                         _brand.value = brandList
                         _makeUp.value = MakeUpEvent.MakeUpSuccess(result.data!!)
                     }
@@ -69,6 +66,7 @@ class MakeUpViewModel @Inject constructor(private val repository: RepositoryInte
         }
     }
 
+//    get all brand products types that are close
     fun updateProductTypes(id: Int, brand: String){
         viewModelScope.launch {
             _productType.value = (MakeUpEvent.Loading)
