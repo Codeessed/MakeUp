@@ -12,13 +12,18 @@ import com.makeupapp.makeup.databinding.BrandItemBinding
 import com.makeupapp.makeup.databinding.ProductTypeItemBinding
 import com.makeupapp.makeup.product.data.model.MakeUpResponseModelItem
 import com.squareup.picasso.Picasso
+import java.util.*
 
 class ProductTypeAdapter(private val onItemClickListener: OnItemClickListener, private val context:Context): RecyclerView.Adapter<ProductTypeAdapter.ProductViewHolder>() {
     inner class ProductViewHolder(val binding: ProductTypeItemBinding): RecyclerView.ViewHolder(binding.root){
         fun bind(position: Int){
             val brand = differ.currentList[position]
             binding.apply {
-                productName.text = brand.product_type
+                productName.text = brand.product_type.replaceFirstChar {
+                    if (it.isLowerCase()) it.titlecase(
+                        Locale.ROOT
+                    ) else it.toString()
+                }
                 Picasso.get()
                     .apply {
                         load("https:${brand.api_featured_image}")

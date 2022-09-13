@@ -46,10 +46,11 @@ class ProductTypeFragment: Fragment(), OnItemClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setUpProductTypeRv()
         observer(makeUpViewModel.productType){ productType ->
             when(productType){
                 is MakeUpEvent.ProductTypeSuccess ->{
-                    setUpProductTypeRv(makeUpViewModel.productTypes)
+                    productTypeAdapter.differ.submitList(makeUpViewModel.productTypes)
                     productTypeSuccess()
                 }
                 is MakeUpEvent.Loading ->{
@@ -77,12 +78,11 @@ class ProductTypeFragment: Fragment(), OnItemClickListener {
 //        }
     }
 
-    private fun setUpProductTypeRv(productTypeList: List<MakeUpResponseModelItem>){
+    private fun setUpProductTypeRv(){
         productTypeRv = binding.productTypeRv
         productTypeAdapter = ProductTypeAdapter(this, requireContext())
         productTypeRv.adapter = productTypeAdapter
         productTypeRv.layoutManager = LinearLayoutManager(requireContext())
-        productTypeAdapter.differ.submitList(productTypeList)
     }
 
     private fun productTypeLoading(){

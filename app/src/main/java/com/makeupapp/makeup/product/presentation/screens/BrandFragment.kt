@@ -45,6 +45,7 @@ class BrandFragment: Fragment(), OnItemClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setUpBrandRecyclerView()
         binding.brandRetry.setOnClickListener {
             makeUpViewModel.getMakeUp()
         }
@@ -52,9 +53,8 @@ class BrandFragment: Fragment(), OnItemClickListener {
         observer(makeUpViewModel.makeUp){ makeUp ->
             when(makeUp){
                 is MakeUpEvent.MakeUpSuccess -> {
-                    setUpBrandRecyclerView(makeUpViewModel.brandList)
+                    brandAdapter.differ.submitList(makeUpViewModel.brandList)
                     brandSuccess()
-                    Log.d("tag", makeUpViewModel.productIds.toString())
                 }
                 is MakeUpEvent.Error -> {
                     brandFailed()
@@ -85,14 +85,13 @@ class BrandFragment: Fragment(), OnItemClickListener {
         binding.brandRetry.isVisible = false
     }
 
-    private fun setUpBrandRecyclerView(brandList: List<MakeUpResponseModelItem>){
+    private fun setUpBrandRecyclerView(){
         brandRecyclerView = binding.brandRv
         brandAdapter = BrandAdapter(this)
         brandRecyclerView.adapter = brandAdapter
         val layoutManager = StaggeredGridLayoutManager(2, LinearLayoutManager.VERTICAL)
         layoutManager.gapStrategy = StaggeredGridLayoutManager.GAP_HANDLING_NONE
         brandRecyclerView.layoutManager = layoutManager
-        brandAdapter.differ.submitList(brandList)
     }
 
     override fun onDestroy() {

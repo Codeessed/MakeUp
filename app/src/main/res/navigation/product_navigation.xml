@@ -7,7 +7,7 @@
     <fragment
         android:id="@+id/brandFragment"
         android:name="com.makeupapp.makeup.product.presentation.screens.BrandFragment"
-        android:label="BrandFragment" >
+        android:label="Brands" >
         <action
             android:id="@+id/action_brandFragment_to_productTypeFragment"
             app:destination="@id/productTypeFragment" />
@@ -15,7 +15,7 @@
     <fragment
         android:id="@+id/productTypeFragment"
         android:name="com.makeupapp.makeup.product.presentation.screens.ProductTypeFragment"
-        android:label="ProductTypeFragment" >
+        android:label="Product Types" >
         <action
             android:id="@+id/action_productTypeFragment_to_productDetailsFragment"
             app:destination="@id/productDetailsFragment" />
@@ -23,5 +23,5 @@
     <fragment
         android:id="@+id/productDetailsFragment"
         android:name="com.makeupapp.makeup.product.presentation.screens.ProductDetailsFragment"
-        android:label="ProductDetailsFragment" />
+        android:label="Product Details" />
 </navigation>

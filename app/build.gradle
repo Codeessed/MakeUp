@@ -61,6 +61,10 @@ dependencies {
 //    picasso
     implementation 'com.squareup.picasso:picasso:2.8'
 
+//    timber
+    implementation 'com.jakewharton.timber:timber:4.7.1'
+
+
 
     //Dagger - Hilt
     implementation 'com.google.dagger:hilt-android:2.40.5'

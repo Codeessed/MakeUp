@@ -2,6 +2,8 @@ package com.makeupapp.makeup.product.presentation.screens
 
 import android.content.res.ColorStateList
 import android.graphics.Color
+import android.icu.number.NumberFormatter.with
+import android.icu.number.NumberRangeFormatter.with
 import android.os.Bundle
 import android.text.Html
 import android.view.LayoutInflater
@@ -96,8 +98,7 @@ class ProductDetailsFragment: Fragment() {
         binding.productDetailProduct.text = getString(R.string.detail_product, item.product_type)
         binding.productDetailCategory.text = getString(R.string.detail_category, item.category?:"")
         binding.productDetailDesc.text = getString(R.string.detail_desc, item.description)
-        binding.productDetailImage
-            .load(item.api_featured_image)
+        Picasso.get().load(item.image_link).placeholder(R.drawable.ic_pic_placeholder).into(binding.productDetailImage)
     }
 
     override fun onDestroy() {

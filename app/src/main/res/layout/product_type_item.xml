@@ -42,10 +42,13 @@
                 android:layout_margin="5dp"
                 android:orientation="vertical"
                 >
+
                 <androidx.appcompat.widget.LinearLayoutCompat
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
+                    android:layout_weight="1"
+                    android:gravity="bottom"
                     >
                     <TextView
                         android:id="@+id/product_currency"
@@ -53,6 +56,7 @@
                         android:layout_height="wrap_content"
                         android:textStyle="bold"
                         android:text="USD"
+                        android:textColor="@color/black"
                         />
                     <TextView
                         android:id="@+id/product_price_sign"
@@ -60,6 +64,7 @@
                         android:layout_height="wrap_content"
                         android:textStyle="bold"
                         android:text="$"
+                        android:textColor="@color/black"
                         />
 
                     <TextView
@@ -68,6 +73,7 @@
                         android:layout_height="wrap_content"
                         android:textStyle="bold"
                         android:text="0.00"
+                        android:textColor="@color/black"
                         android:layout_weight="1"
                         android:layout_marginStart="5dp"
                         />
@@ -84,12 +90,12 @@
                 <TextView
                     android:id="@+id/product_desc"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
                     android:text="@string/brand_name"
                     android:ellipsize="end"
                     android:textSize="15sp"
-                    android:textStyle="bold" />
+                    android:textStyle="italic"
+                    android:singleLine="true" />
             </androidx.appcompat.widget.LinearLayoutCompat>
         </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.cardview.widget.CardView>
